@@ -16,6 +16,9 @@ namespace ML_Final_Project
         static readonly string _modelPath = Path.Combine(Environment.CurrentDirectory, "Data", "IrisClusteringModel.zip");
         static void Main(string[] args)
         {
+            
+
+
             try
             {
                 var mlContext = new MLContext(seed: 0);
@@ -35,10 +38,37 @@ namespace ML_Final_Project
                 List<List<IrisData>> clusters = DBSCAN.GetClusters(list, eps, minPts);
 
                 Console.Clear();
-                // print points to console
-                // Console.WriteLine("The {0} points are :\n", points.Count);
-                //foreach (Point p in points) Console.Write(" {0} ", p);
-                // Console.WriteLine();
+
+                
+                string op = "0"; //creando variable de seleccion del switch
+                while (op != "4")
+                {
+                    Console.WriteLine("Presione la tecla de la opcion deseada:");
+                    Console.WriteLine("1-Mostrar el conjunto de datos");
+                    Console.WriteLine("2-Mostrar clusteres");
+                    Console.WriteLine("3-Ingresar nuevas caracteristicas");
+                    Console.WriteLine("4-Salir");
+                    op = Console.ReadLine();
+
+
+                    switch (op)
+                    {
+                        case "1": // print points to console
+                                  Console.WriteLine("The {0} points are :\n", list.Count);
+                                  foreach (IrisData p in list) Console.Write(" {0} \n", p);
+                                  Console.WriteLine();
+                                  break;
+                       
+                        case "4":break;
+                        
+                        default: Console.WriteLine("Opcion incorrecta");
+                                 break;
+
+
+
+
+                    }
+                }
 
                 // print clusters to console
                 int total = 0;
@@ -51,6 +81,7 @@ namespace ML_Final_Project
                     foreach (IrisData p in clusters[i]) Console.Write($" {p} \n");
                     Console.WriteLine();
                 }
+
                 // print any points which are NOISE
                 total = list.Count - total;
                 if (total > 0)
@@ -64,12 +95,14 @@ namespace ML_Final_Project
                     }
                     Console.WriteLine();
                 }
+
                 else
                 {
                     Console.WriteLine("\nNo points are NOISE");
                 }
+                Console.WriteLine("Presione una tecla para continuar");
                 Console.ReadKey();
-
+                
 
             }
             catch (Exception ex)
@@ -78,7 +111,7 @@ namespace ML_Final_Project
                 Console.WriteLine("presione una tecla");
                 Console.ReadKey();
             }
-            Console.WriteLine("fjklsdjflks");
+            
 
     }
 
