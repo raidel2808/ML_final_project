@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ML_Final_Project
 {
-     public class IrisData
+    public class IrisData
     {
         [LoadColumn(0)]
         public float SepalLength;
@@ -27,9 +27,18 @@ namespace ML_Final_Project
         [LoadColumn(5)]
         public int ClusterId;
 
+
+       //public IrisData( float sepalLength = 0, float sepalWidth = 0, float petallLength = 0, float petalWidth = 0, int clusterid=0)
+       //     {
+       //     SepalLength=sepalLength;
+       //     SepalWidth=sepalWidth;
+       //     PetalLength=petallLength;
+       //     PetalWidth=petalWidth;
+       //     ClusterId=clusterid;
+       //     }
         public override string ToString()
         {
-            return String.Format($"({SepalLength}, {SepalWidth}, {PetalLength}, {PetalWidth})");
+            return String.Format($"{SepalLength}, {SepalWidth}, {PetalLength}, {PetalWidth}");
         }
 
         public static float DistanceSquared(IrisData iris1, IrisData iris2)

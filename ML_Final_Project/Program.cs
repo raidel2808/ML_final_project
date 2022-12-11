@@ -9,16 +9,15 @@ using Microsoft.ML.Data;
 using System.Windows.Forms;
 
 namespace ML_Final_Project
-{
+{ 
      class Program
     {
         static readonly string _dataPath = Path.Combine(Environment.CurrentDirectory, "Data", "iris.data");
-        static readonly string _modelPath = Path.Combine(Environment.CurrentDirectory, "Data", "IrisClusteringModel.zip");
+       // static readonly string _modelPath = Path.Combine(Environment.CurrentDirectory, "Data", "IrisClusteringModel.zip");
+
         static void Main(string[] args)
         {
-            
-
-
+            Console.ForegroundColor = ConsoleColor.Green;
             try
             {
                 var mlContext = new MLContext(seed: 0);
@@ -29,17 +28,11 @@ namespace ML_Final_Project
                 var list = dataList.ToList();
                 var oneSample = list.ElementAt(1);
 
-
-
                 double eps = 0.8;
                 int minPts = 3;
 
 
-                List<List<IrisData>> clusters = DBSCAN.GetClusters(list, eps, minPts);
-
-                Console.ForegroundColor=ConsoleColor.Green;
-                
-
+                List<List<IrisData>> clusters = DBSCAN.GetClusters(list, eps, minPts);              
                 
                 string op = "0"; //creando variable de seleccion del switch
                 while (op != "4")
@@ -97,6 +90,30 @@ namespace ML_Final_Project
                             Console.Clear();
                             break;
 
+                        case "3":   IrisData newIris =new IrisData();
+                                    Console.WriteLine("Ingrese el SepalLength: ");
+                                    newIris.SepalLength = float.Parse(Console.ReadLine());
+                                    Console.WriteLine("Ingrese el SepalWidth: ");
+                                    newIris.SepalWidth = float.Parse(Console.ReadLine());
+                                    Console.WriteLine("Ingrese el PetalLength: ");
+                                    newIris.PetalLength = float.Parse(Console.ReadLine());
+                                    Console.WriteLine("Ingrese el PetalWidth: ");
+                                    newIris.PetalWidth = float.Parse(Console.ReadLine());
+                                    list.Add(newIris);
+
+                                   
+
+                                    string archivo = @"C:\Users\raide\source\repos\ML_final_project\ML_Final_Project\Data\iris.data";
+                                    string newflower = newIris.ToString();
+                                    StreamWriter sw = new StreamWriter(archivo, true);
+                                    sw.WriteLine(newflower);
+                                    sw.Close();
+
+
+                            Console.WriteLine("Presione una tecla para continuar");
+                                  Console.ReadLine();
+                                  Console.Clear();
+                                  break;
 
                         case "4": break;
 
