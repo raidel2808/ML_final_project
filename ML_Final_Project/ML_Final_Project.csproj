@@ -65,11 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBSCAN.cs" />
-    <Compile Include="IrisClusters.cs" />
     <Compile Include="IrisData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestIrisData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
