@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ML_Final_Project
 {
     public class IrisData
@@ -28,14 +29,7 @@ namespace ML_Final_Project
         public int ClusterId;
 
 
-       //public IrisData( float sepalLength = 0, float sepalWidth = 0, float petallLength = 0, float petalWidth = 0, int clusterid=0)
-       //     {
-       //     SepalLength=sepalLength;
-       //     SepalWidth=sepalWidth;
-       //     PetalLength=petallLength;
-       //     PetalWidth=petalWidth;
-       //     ClusterId=clusterid;
-       //     }
+
         public override string ToString()
         {
             return String.Format($"{SepalLength}, {SepalWidth}, {PetalLength}, {PetalWidth}");
@@ -48,7 +42,9 @@ namespace ML_Final_Project
             float diffPetalLength = iris2.PetalLength - iris1.PetalLength;
             float diffPetalWidth = iris2.PetalWidth - iris1.PetalWidth;
 
-            return (diffSepalLength * diffSepalLength) + (diffSepalWidth * diffSepalWidth) + (diffPetalLength * diffPetalLength) + (diffPetalWidth * diffPetalWidth);
+            
+           float dist= (diffSepalLength * diffSepalLength) + (diffSepalWidth * diffSepalWidth) + (diffPetalLength * diffPetalLength) + (diffPetalWidth * diffPetalWidth);
+            return (float)Math.Sqrt(dist);
         }
 
     }

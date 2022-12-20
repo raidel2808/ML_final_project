@@ -13,7 +13,7 @@ namespace ML_Final_Project
         {
             if (list == null) return null;
             List<List<IrisData>> clusters = new List<List<IrisData>>();
-            eps *= eps; // square eps
+           // eps *= eps; // square eps
             int clusterId = 1;
             for (int i = 0; i < list.Count; i++)
             {
@@ -29,7 +29,7 @@ namespace ML_Final_Project
             for (int i = 0; i < maxClusterId; i++) clusters.Add(new List<IrisData>());
             foreach (IrisData p in list)
             {
-                if (p.ClusterId > 0) clusters[p.ClusterId - 1].Add(p);
+                if (p.ClusterId > 0) clusters[p.ClusterId -1].Add(p);
             }
             return clusters;
         }

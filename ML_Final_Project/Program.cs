@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 using Microsoft.ML;
 using Microsoft.ML.Data;
 using System.Windows.Forms;
+using Menu;
 
 namespace ML_Final_Project
 { 
      class Program
     {
-        static readonly string _dataPath = Path.Combine(Environment.CurrentDirectory, "Data", "iris.data");
+        static readonly string _dataPath = Path.Combine(Environment.CurrentDirectory,"iris.data");
        // static readonly string _modelPath = Path.Combine(Environment.CurrentDirectory, "Data", "IrisClusteringModel.zip");
 
         static void Main(string[] args)
@@ -26,22 +27,23 @@ namespace ML_Final_Project
                 dataView.Preview();
                 var dataList = mlContext.Data.CreateEnumerable<IrisData>(dataView, false);
                 var list = dataList.ToList();
-                var oneSample = list.ElementAt(1);
+                
 
-                double eps = 0.8;
-                int minPts = 3;
+                double eps = 0.5;
+                int minPts = 10;
 
 
                 List<List<IrisData>> clusters = DBSCAN.GetClusters(list, eps, minPts);              
                 
                 string op = "0"; //creando variable de seleccion del switch
-                while (op != "4")
+                while (op != "5")
                 {
                     Console.WriteLine("Presione la tecla de la opcion deseada:");
                     Console.WriteLine("1-Mostrar el conjunto de datos");
                     Console.WriteLine("2-Mostrar clusteres");
                     Console.WriteLine("3-Ingresar nuevas caracteristicas");
-                    Console.WriteLine("4-Salir");
+                    Console.WriteLine("4-Menu DVC");
+                    Console.WriteLine("5-Salir");
                     op = Console.ReadLine();
 
 
@@ -100,14 +102,13 @@ namespace ML_Final_Project
                                     Console.WriteLine("Ingrese el PetalWidth: ");
                                     newIris.PetalWidth = float.Parse(Console.ReadLine());
                                     list.Add(newIris);
-
-                                   
-
-                                    string archivo = @"C:\Users\raide\source\repos\ML_final_project\ML_Final_Project\Data\iris.data";
+                               
+                                    string archivo = @"C:\Users\raide\source\repos\ML_final_project\ML_Final_Project\bin\x64\Debug\iris.data"; //escribiendo los datos ingresados en el txt 
                                     string newflower = newIris.ToString();
                                     StreamWriter sw = new StreamWriter(archivo, true);
                                     sw.WriteLine(newflower);
                                     sw.Close();
+                                    List<List<IrisData>> clusters2 = DBSCAN.GetClusters(list, eps, minPts);
 
 
                             Console.WriteLine("Presione una tecla para continuar");
@@ -115,10 +116,15 @@ namespace ML_Final_Project
                                   Console.Clear();
                                   break;
 
-                        case "4": break;
+                        case "4": DVC.OpenMenu();
+                                  break;
+
+                        case "5": break;
 
                         default:
                             Console.WriteLine("Opcion incorrecta");
+                            Console.ReadLine();
+                            Console.Clear();
                             break;
 
                     }
