@@ -30,7 +30,7 @@ namespace ML_Final_Project
                 
 
                 double eps = 1;
-                int minPts = 10;
+                int minPts = 14;
 
 
                 List<List<IrisData>> clusters = DBSCAN.GetClusters(list, eps, minPts);              
@@ -65,7 +65,19 @@ namespace ML_Final_Project
                                 int count = clusters[i].Count;
                                 total += count;
                                 string plural = (count != 1) ? "s" : "";
-                                Console.WriteLine($"\nCluster {i + 1} consists of the following {count} point{plural} :\n");
+                                Console.WriteLine($"\nCluster {i + 1} consists of the following {count} point{plural} :");
+                                if (i == 0)
+                                    Console.WriteLine("Iris Setosa\n");
+
+                                else if (i == 1)
+                                    Console.WriteLine("Iris Versicolor-Iris Virginica\n");
+
+                                else
+                                {
+                                    Console.WriteLine("Teclee el nombre del cluster");
+                                    string cad=Console.ReadLine();
+                                }
+                                
                                 foreach (IrisData p in clusters[i]) Console.Write($" {p} \n");
                                 Console.WriteLine();
                             }
