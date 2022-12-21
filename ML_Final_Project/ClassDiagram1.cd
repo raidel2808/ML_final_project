@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ML_Final_Project.DBSCAN" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAgAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DBSCAN.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ML_Final_Project.IrisData" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIAAACAAAAAAEAAAAAAAAgAAEAAABCAgAAAAAAAA=</HashCode>
+      <FileName>IrisData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ML_Final_Project.Program" Collapsed="true">
+    <Position X="2.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Menu.DVC" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MenuDVC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOpciones.Ops" Collapsed="true">
+    <Position X="2.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAQAAAAAAAAAAAAAAAAAAAAAEAACAAAgAAQoIAAI=</HashCode>
+      <FileName>MOpciones.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

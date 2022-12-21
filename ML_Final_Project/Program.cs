@@ -29,7 +29,7 @@ namespace ML_Final_Project
                 var list = dataList.ToList();
                 
 
-                double eps = 0.5;
+                double eps = 1;
                 int minPts = 10;
 
 
